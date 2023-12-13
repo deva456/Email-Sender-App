@@ -1,0 +1,51 @@
+﻿@model MVCCoreSendEmail.Models.EmailModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("Index","Employee",FormMethod.Post,new { @enctype="multipart/form-data"}))
+    {
+        <table>
+
+            <tr>
+                <td>Receiver Email Address</td>
+                <td>@Html.TextBoxFor(e=>e.ToEmail)</td>
+
+            </tr>
+            <tr>
+                <td>Receiver Name</td>
+                <td>@Html.TextBoxFor(e=>e.ToName)</td>
+
+            </tr>
+            <tr>
+                <td>Subject</td>
+                <td>@Html.TextBoxFor(e=>e.Subject)</td>
+
+            </tr>
+            <tr>
+                <td>Message Body</td>
+                <td>@Html.TextAreaFor(e=>e.Body)</td>
+
+            </tr>
+             
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+
+
+            </tr>
+
+        </table>
+    }
+    <h2>@ViewBag.msg</h2>
+</body>
+</html>
